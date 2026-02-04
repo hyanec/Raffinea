@@ -1,0 +1,1274 @@
+<!doctype html>
+<html lang="fr">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <meta name="description" content="Raffinea, comparez les salons de beauté, réservez en ligne et trouvez le meilleur service près de chez vous.">
+        <meta name="author" content="Raffinea">
+
+        <title>Raffinea </title>
+
+        <!-- CSS FILES -->                
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+        <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+
+        <link href="css/bootstrap-icons.css" rel="stylesheet">
+
+        <link href="css/general.css" rel="stylesheet">
+        <link href="css/raffinea-custom.css" rel="stylesheet">
+        
+         <link rel="preconnect" href="https://fonts.googleapis.com">
+          <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+         <link href="https://fonts.googleapis.com/css2?family=Pinyon+Script&display=swap" rel="stylesheet">
+
+        <style>
+            /* Soulignement actif pour les liens de navigation */
+            .nav-link {
+                position: relative;
+                color: #1a1a1a !important;
+                transition: color 0.3s ease;
+            }
+
+            .nav-link::after {
+                content: '';
+                position: absolute;
+                bottom: -5px;
+                left: 0;
+                width: 0;
+                height: 2px;
+                background: linear-gradient(90deg, #FFA4A4, #BADFDB);
+                transition: width 0.3s ease;
+            }
+
+            .nav-link.active::after {
+                width: 100%;
+            }
+
+            .nav-link:hover::after {
+                width: 100%;
+            }
+
+            /* Pop-up abonnement */
+            .popup-overlay {
+                position: fixed;
+                inset: 0;
+                background: rgba(0, 0, 0, 0.45);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                opacity: 0;
+                visibility: hidden;
+                transition: opacity 0.25s ease, visibility 0.25s ease;
+                z-index: 2000;
+            }
+
+            .popup-overlay.active {
+                opacity: 1;
+                visibility: visible;
+            }
+
+            .popup-card {
+                background: #ffffff;
+                border-radius: 16px;
+                padding: 28px 24px;
+                max-width: 420px;
+                width: calc(100% - 40px);
+                box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+                text-align: center;
+                transform: translateY(10px);
+                transition: transform 0.25s ease;
+            }
+
+            .popup-overlay.active .popup-card {
+                transform: translateY(0);
+            }
+
+            .popup-title {
+                font-size: 1.25rem;
+                font-weight: 700;
+                color: #1a1a1a;
+                margin-bottom: 8px;
+            }
+
+            .popup-message {
+                color: #666;
+                margin-bottom: 18px;
+            }
+
+            .popup-btn {
+                background: linear-gradient(135deg, #FFA4A4 0%, #BADFDB 100%);
+                color: #fff;
+                border: none;
+                border-radius: 999px;
+                padding: 10px 22px;
+                font-weight: 600;
+                cursor: pointer;
+            }
+
+            section {
+                scroll-margin-top: 120px;
+            }
+        </style>
+
+    </head>
+    
+    <body>
+
+        <main>
+
+            <nav class="navbar navbar-expand-lg navbar-modern fixed-top">
+                <!-- Wavy Background for Navbar -->
+               <div class="navbar-wavy-background">
+                   <svg viewBox="0 0 1440 320" preserveAspectRatio="none" style="display:block; width:100%; height:120px;">
+                      <path fill="#FFA4A4" fill-opacity="1" d="M0,160L48,176C96,192,192,224,288,213.3C384,203,480,149,576,144C672,139,768,181,864,181.3C960,181,1056,139,1152,122.7C1248,107,1344,117,1392,122.7L1440,128L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z"></path>
+                  </svg>
+                </div>
+                
+               <nav class="navbar navbar-expand-lg navbar-modern">
+                   <div class="navbar-wavy-background">
+                          <svg viewBox="0 0 1440 320" preserveAspectRatio="none">
+                              <path fill="#FFA4A4" d="M0,224L48,213.3C96,203,192,181,288,181.3C384,181,480,203,576,224C672,245,768,267,864,250.7C960,235,1056,181,1152,165.3C1248,149,1344,171,1392,181.3L1440,192L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z"></path>
+                          </svg>
+                   </div>
+
+                    <div class="container navbar-content">
+                        <a class="navbar-brand" href="index.html">
+                           <a class="logo-container d-flex align-items-center" href="index.html">
+                           <span class="logo-initial">R</span>
+                           <span class="logo-text">affinea</span>
+                       </a>
+                  
+                
+             
+    
+                       <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                          <span class="navbar-toggler-icon"></span>
+                       </button>
+    
+                     <div class="collapse navbar-collapse" id="navbarNav">
+                          <ul class="navbar-nav mx-auto">
+                              <li class="nav-item">
+                                 <a class="nav-link click-scroll" href="#section_1">Accueil</a>
+                              </li>
+    
+                              <li class="nav-item">
+                                 <a class="nav-link click-scroll" href="#section_apropos">À propos</a>
+                              </li>
+
+                              <li class="nav-item">
+                                 <a class="nav-link click-scroll" href="#section_offres">Offres du moment</a>
+                              </li>
+
+                              <li class="nav-item">
+                                 <a class="nav-link click-scroll" href="#section_salons">Salons</a>
+                              </li>
+
+                              <li class="nav-item">
+                                 <a class="nav-link click-scroll" href="#section_faq">FAQ</a>
+                              </li>
+
+                              <li class="nav-item">
+                                 <a class="nav-link click-scroll" href="#section_contact">Contact</a>
+                              </li>
+                          </ul>
+
+                          <div class="d-flex align-items-center">
+                             <a href="#section_salons" class="btn btn-primary-modern">Réserver</a>
+                          </div>
+                      </div>
+                  </div>
+              </nav>
+          </nav>
+
+
+
+            <section class="hero-section-modern d-flex align-items-center" id="section_1">
+                <!-- Wavy Background SVG -->
+                <svg class="hero-wavy-background" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" preserveAspectRatio="none">
+                    <defs>
+                        <linearGradient id="waveGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#BADFDB;stop-opacity:1" />
+                            <stop offset="50%" style="stop-color:#FFA4A4;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#FFBDBD;stop-opacity:1" />
+                        </linearGradient>
+                    </defs>
+                    <path fill="url(#waveGradient)" d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,128C672,128,768,160,864,160C960,160,1056,128,1152,128C1248,128,1344,160,1392,176L1440,192L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+                    <path fill="#FCF9EA" fill-opacity="0.2" d="M0,160L48,176C96,192,192,224,288,213.3C384,203,480,149,576,149.3C672,149,768,203,864,197.3C960,192,1056,128,1152,133.3C1248,139,1344,213,1392,250.7L1440,288L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+                </svg>
+
+                <div class="container">
+                    <div class="row align-items-center min-vh-100 justify-content-center">
+
+                        <div class="col-lg-8 col-12 text-center">
+                            <div class="hero-content">
+                                <h1 class="hero-title mb-4">
+                                    Trouvez le <span class="text-gradient">salon parfait</span><br>
+                                    près de chez vous
+                                </h1>
+
+                                <p class="hero-subtitle mb-4">
+                                    Comparez les salons de beauté, consultez les avis et réservez en quelques clics. Votre beauté, notre priorité.
+                                </p>
+
+                                <div class="hero-search-box mb-4">
+                                    <form class="search-form" onsubmit="handleSearch(event)">
+                                        <div class="input-group input-group-lg shadow-sm">
+                                            <span class="input-group-text border-0 bg-white">
+                                                <i class="bi bi-search"></i>
+                                            </span>
+                                            <input type="text" class="form-control border-0" id="searchInput" name="q" placeholder="Rechercher un salon, service..." aria-label="Search" required>
+                                            <button class="btn btn-search" type="submit">
+                                                Rechercher
+                                            </button>
+                                        </div>
+                                    </form>
+                                </div>
+
+                              
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+
+            <section class="about-section section-padding" id="section_apropos">
+                <div class="container">
+                    <div class="row">
+
+                        <div class="col-lg-12 col-12 text-center">
+                            <h2 class="mb-lg-5 mb-4">À propos de Raffinea</h2>
+                        </div>
+
+                        <div class="col-lg-5 col-12 me-auto mb-4 mb-lg-0">
+                            <h3 class="mb-3">Notre mission</h3>
+
+                            <p><strong>Raffinea</strong> simplifie la comparaison des salons de beauté près de chez vous. Comparez les prix, les services, les avis et réservez en quelques clics.</p>
+
+                            <p>Nous mettons en avant les meilleurs salons, des coiffeurs aux instituts de beauté, avec des informations claires et des créneaux disponibles en temps réel.</p>
+                        </div>
+
+                        <div class="col-lg-6 col-12 d-flex align-items-center justify-content-center">
+                            <div class="animated-words-container">
+                                <h2 class="animated-word">Comparez</h2>
+                                <h2 class="animated-word">Réservez</h2>
+                                <h2 class="animated-word">Rayonnez</h2>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+
+
+            <section class="categories-section section-padding" style="background: #ffffff;" id="section_3">
+                <div class="container">
+                    <div class="row mb-5">
+                        <div class="col-lg-8 col-12 mx-auto text-center">
+                            <h2 class="mb-3" style="font-size: 2.5rem; font-weight: 700;">Explorez par catégorie</h2>
+                            <p class="lead text-muted">Découvrez les meilleurs salons et professionnels dans votre domaine préféré</p>
+                        </div>
+                    </div>
+
+                    <div class="row g-4">
+                        <div class="col-lg-3 col-md-6 col-12">
+                            <div class="category-card h-100" style="background: linear-gradient(135deg, #FFA4A4 0%, #FFBDBD 100%); border-radius: 15px; overflow: hidden; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 5px 20px rgba(255, 164, 164, 0.2);">
+                                <div class="category-content d-flex flex-column justify-content-between h-100 p-4" style="min-height: 250px;">
+                                    <div>
+                                        <i class="bi bi-scissors" style="font-size: 3rem; color: #ffffff;"></i>
+                                        <h5 class="mt-3 mb-2" style="color: #ffffff; font-weight: 700;">Coiffure</h5>
+                                        <p style="color: rgba(255,255,255,0.9); font-size: 0.9rem;">Coupe, coloration, traitement capillaire</p>
+                                    </div>
+                                    <a href="search.html?category=coiffure" class="btn btn-light btn-sm" style="align-self: flex-start; border-radius: 20px;">Explorer</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3 col-md-6 col-12">
+                            <div class="category-card h-100" style="background: linear-gradient(135deg, #BADFDB 0%, #6BA085 100%); border-radius: 15px; overflow: hidden; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 5px 20px rgba(186, 223, 219, 0.2);">
+                                <div class="category-content d-flex flex-column justify-content-between h-100 p-4" style="min-height: 250px;">
+                                    <div>
+                                        <i class="bi bi-heart-pulse" style="font-size: 3rem; color: #ffffff;"></i>
+                                        <h5 class="mt-3 mb-2" style="color: #ffffff; font-weight: 700;">Beauté & Wellness</h5>
+                                        <p style="color: rgba(255,255,255,0.9); font-size: 0.9rem;">Soins visage, massage, bien-être</p>
+                                    </div>
+                                    <a href="search.html?category=beaute" class="btn btn-light btn-sm" style="align-self: flex-start; border-radius: 20px;">Explorer</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3 col-md-6 col-12">
+                            <div class="category-card h-100" style="background: linear-gradient(135deg, #FFD89B 0%, #FFC94D 100%); border-radius: 15px; overflow: hidden; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 5px 20px rgba(255, 217, 155, 0.2);">
+                                <div class="category-content d-flex flex-column justify-content-between h-100 p-4" style="min-height: 250px;">
+                                    <div>
+                                        <i class="bi bi-hand-index-thumb" style="font-size: 3rem; color: #ffffff;"></i>
+                                        <h5 class="mt-3 mb-2" style="color: #ffffff; font-weight: 700;">Ongles & Maquillage</h5>
+                                        <p style="color: rgba(255,255,255,0.9); font-size: 0.9rem;">Manucure, pédicure, maquillage</p>
+                                    </div>
+                                    <a href="search.html?category=ongles" class="btn btn-light btn-sm" style="align-self: flex-start; border-radius: 20px;">Explorer</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3 col-md-6 col-12">
+                            <div class="category-card h-100" style="background: linear-gradient(135deg, #B8E6F5 0%, #7ECEF0 100%); border-radius: 15px; overflow: hidden; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 5px 20px rgba(184, 230, 245, 0.2);">
+                                <div class="category-content d-flex flex-column justify-content-between h-100 p-4" style="min-height: 250px;">
+                                    <div>
+                                        <i class="bi bi-star" style="font-size: 3rem; color: #ffffff;"></i>
+                                        <h5 class="mt-3 mb-2" style="color: #ffffff; font-weight: 700;">Spécialistes</h5>
+                                        <p style="color: rgba(255,255,255,0.9); font-size: 0.9rem;">Professionnels indépendants à domicile</p>
+                                    </div>
+                                    <a href="search.html?category=specialistes" class="btn btn-light btn-sm" style="align-self: flex-start; border-radius: 20px;">Explorer</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="features-section section-padding section-bg" >
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12 col-12 text-center mb-5">
+                            <h2 class="mb-3">Pourquoi choisir Raffinea ?</h2>
+                            <p class="text-muted">Une plateforme complète pour tous vos besoins beauté</p>
+                        </div>
+
+                        <div class="col-lg-4 col-md-6 col-12 mb-4">
+                            <div class="card h-100 border-0 shadow-sm" style="border-radius: 15px; transition: transform 0.3s ease;">
+                                <div class="card-body text-center p-4">
+                                    <div class="mb-3">
+                                        <i class="bi bi-search" style="font-size: 3rem; color: #BADFDB;"></i>
+                                    </div>
+                                    <h4 class="mb-3">Recherche facile</h4>
+                                    <p class="text-muted">Trouvez rapidement le salon idéal près de chez vous grâce à nos filtres par ville, service et prix</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4 col-md-6 col-12 mb-4">
+                            <div class="card h-100 border-0 shadow-sm" style="border-radius: 15px; transition: transform 0.3s ease;">
+                                <div class="card-body text-center p-4">
+                                    <div class="mb-3">
+                                        <i class="bi bi-calendar-check" style="font-size: 3rem; color: #BADFDB;"></i>
+                                    </div>
+                                    <h4 class="mb-3">Réservation en 2 clics</h4>
+                                    <p class="text-muted">Réservez vos rendez-vous beauté en quelques secondes, disponibilité en temps réel</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4 col-md-6 col-12 mb-4">
+                            <div class="card h-100 border-0 shadow-sm" style="border-radius: 15px; transition: transform 0.3s ease;">
+                                <div class="card-body text-center p-4">
+                                    <div class="mb-3">
+                                        <i class="bi bi-star-fill" style="font-size: 3rem; color: #BADFDB;"></i>
+                                    </div>
+                                    <h4 class="mb-3">Avis vérifiés</h4>
+                                    <p class="text-muted">Consultez les avis authentiques de clients pour faire le meilleur choix</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4 col-md-6 col-12 mb-4">
+                            <div class="card h-100 border-0 shadow-sm" style="border-radius: 15px; transition: transform 0.3s ease;">
+                                <div class="card-body text-center p-4">
+                                    <div class="mb-3">
+                                        <i class="bi bi-bell" style="font-size: 3rem; color: #BADFDB;"></i>
+                                    </div>
+                                    <h4 class="mb-3">Rappels automatiques</h4>
+                                    <p class="text-muted">Recevez des rappels WhatsApp pour ne jamais manquer vos rendez-vous</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4 col-md-6 col-12 mb-4">
+                            <div class="card h-100 border-0 shadow-sm" style="border-radius: 15px; transition: transform 0.3s ease;">
+                                <div class="card-body text-center p-4">
+                                    <div class="mb-3">
+                                        <i class="bi bi-piggy-bank" style="font-size: 3rem; color: #BADFDB;"></i>
+                                    </div>
+                                    <h4 class="mb-3">Meilleurs prix</h4>
+                                    <p class="text-muted">Comparez les tarifs et profitez d'offres exclusives réservées aux membres</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4 col-md-6 col-12 mb-4">
+                            <div class="card h-100 border-0 shadow-sm" style="border-radius: 15px; transition: transform 0.3s ease;">
+                                <div class="card-body text-center p-4">
+                                    <div class="mb-3">
+                                        <i class="bi bi-shield-check" style="font-size: 3rem; color: #BADFDB;"></i>
+                                    </div>
+                                    <h4 class="mb-3">Salons certifiés</h4>
+                                    <p class="text-muted">Tous nos partenaires sont vérifiés pour garantir qualité et professionnalisme</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+            <section class="section-bg-image" id="section_5">
+                <svg viewBox="0 0 1265 144" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path fill="rgba(255, 255, 255, 1)" d="M 0 40 C 164 40 164 20 328 20 L 328 20 L 328 0 L 0 0 Z" stroke-width="0"></path> <path fill="rgba(255, 255, 255, 1)" d="M 327 20 C 445.5 20 445.5 89 564 89 L 564 89 L 564 0 L 327 0 Z" stroke-width="0"></path> <path fill="rgba(255, 255, 255, 1)" d="M 563 89 C 724.5 89 724.5 48 886 48 L 886 48 L 886 0 L 563 0 Z" stroke-width="0"></path><path fill="rgba(255, 255, 255, 1)" d="M 885 48 C 1006.5 48 1006.5 67 1128 67 L 1128 67 L 1128 0 L 885 0 Z" stroke-width="0"></path><path fill="rgba(255, 255, 255, 1)" d="M 1127 67 C 1196 67 1196 0 1265 0 L 1265 0 L 1265 0 L 1127 0 Z" stroke-width="0"></path></svg>
+
+                <div class="container">
+                    <div class="row">
+
+                        <div class="col-lg-6 col-12">
+                            <div class="section-bg-image-block">
+                                <h2 class="mb-lg-3">Recevez nos offres beauté</h2>
+
+                                <p>Des promotions exclusives, des nouveautés salons et des conseils beauté directement dans votre boîte mail.</p>
+
+                                <form action="#" method="get" class="custom-form mt-lg-4 mt-2" role="form" id="subscribeForm">
+                                    <div class="input-group input-group-lg">
+                                        <span class="input-group-text bi-envelope" id="basic-addon1"></span>
+
+                                        <input type="email" name="email" id="subscribeEmail" pattern="[^ @]*@[^ @]*" class="form-control" placeholder="Adresse e-mail" required="">
+
+                                        <button type="submit" class="form-control">S'abonner</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <svg viewBox="0 0 1265 144" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path fill="rgba(255, 255, 255, 1)" d="M 0 40 C 164 40 164 20 328 20 L 328 20 L 328 0 L 0 0 Z" stroke-width="0"></path> <path fill="rgba(255, 255, 255, 1)" d="M 327 20 C 445.5 20 445.5 89 564 89 L 564 89 L 564 0 L 327 0 Z" stroke-width="0"></path> <path fill="rgba(255, 255, 255, 1)" d="M 563 89 C 724.5 89 724.5 48 886 48 L 886 48 L 886 0 L 563 0 Z" stroke-width="0"></path><path fill="rgba(255, 255, 255, 1)" d="M 885 48 C 1006.5 48 1006.5 67 1128 67 L 1128 67 L 1128 0 L 885 0 Z" stroke-width="0"></path><path fill="rgba(255, 255, 255, 1)" d="M 1127 67 C 1196 67 1196 0 1265 0 L 1265 0 L 1265 0 L 1127 0 Z" stroke-width="0"></path></svg>
+            </section>
+
+
+
+
+            <section class="offers-section section-padding" style="background: #ffffff;" id="section_offres">
+                <div class="container">
+                    <div class="row mb-5">
+                        <div class="col-lg-8 col-12 mx-auto text-center">
+                            <h2 class="mb-3" style="font-size: 2.5rem; font-weight: 700;">Offres du moment</h2>
+                            <p class="lead text-muted">Découvrez les meilleures promotions et offres exclusives de nos salons partenaires</p>
+                        </div>
+                    </div>
+
+                    <div class="row g-4">
+                        <div class="col-lg-6 col-12">
+                            <div class="offer-card" style="background: #ffffff; border-radius: 15px; overflow: hidden; box-shadow: 0 8px 25px rgba(0,0,0,0.1); transition: all 0.3s ease; display: flex;">
+                                <div style="width: 40%; height: 280px; overflow: hidden;">
+                                    <img src="images/salon3.jpg" alt="Coiffure Colorée" style="width: 100%; height: 100%; object-fit: cover;">
+                                </div>
+                                <div class="p-4" style="width: 60%; display: flex; flex-direction: column; justify-content: space-between;">
+                                    <div>
+                                        <div class="d-flex align-items-center gap-2 mb-3">
+                                            <span class="badge" style="background: #FFA4A4; color: white; font-size: 0.85rem; padding: 6px 12px; border-radius: 20px;">-30%</span>
+                                            <span class="text-muted" style="font-size: 0.9rem;">Valable jusqu'au 28 Fév</span>
+                                        </div>
+                                        <h5 style="font-weight: 700; color: #1a1a1a; margin-bottom: 8px;">Coloration Brillante</h5>
+                                        <p class="text-muted mb-3" style="font-size: 0.95rem;">Coloration premium + coupe + soin restructurant inclus</p>
+                                    </div>
+                                    <div>
+                                        <div class="d-flex align-items-center gap-2 mb-3">
+                                            <small class="text-muted">
+                                                <i class="bi bi-geo-alt-fill" style="color: #FFA4A4;"></i> Essence Coiffure, Casablanca
+                                            </small>
+                                        </div>
+                                        <div class="d-flex align-items-center gap-2">
+                                            <span style="font-size: 1.3rem; font-weight: 700; color: #FFA4A4;">89€</span>
+                                            <span style="font-size: 0.95rem; color: #999; text-decoration: line-through;">127€</span>
+                                            <a href="reserver.html?salon=essence&service=coloration" class="btn btn-sm ms-auto" style="background: #BADFDB; color: #1a1a1a; border: none; border-radius: 20px; padding: 6px 16px;">Réserver</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-6 col-12">
+                            <div class="offer-card" style="background: #ffffff; border-radius: 15px; overflow: hidden; box-shadow: 0 8px 25px rgba(0,0,0,0.1); transition: all 0.3s ease; display: flex;">
+                                <div style="width: 40%; height: 280px; overflow: hidden;">
+                                    <img src="images/massage1.jpg" alt="Massage Spa" style="width: 100%; height: 100%; object-fit: cover;">
+                                </div>
+                                <div class="p-4" style="width: 60%; display: flex; flex-direction: column; justify-content: space-between;">
+                                    <div>
+                                        <div class="d-flex align-items-center gap-2 mb-3">
+                                            <span class="badge" style="background: #BADFDB; color: #1a1a1a; font-size: 0.85rem; padding: 6px 12px; border-radius: 20px;">-25%</span>
+                                            <span class="text-muted" style="font-size: 0.9rem;">Valable jusqu'au 15 Fév</span>
+                                        </div>
+                                        <h5 style="font-weight: 700; color: #1a1a1a; margin-bottom: 8px;">Massage Relaxant 60min</h5>
+                                        <p class="text-muted mb-3" style="font-size: 0.95rem;">Massage complet + sauna + tisane relaxante offerte</p>
+                                    </div>
+                                    <div>
+                                        <div class="d-flex align-items-center gap-2 mb-3">
+                                            <small class="text-muted">
+                                                <i class="bi bi-geo-alt-fill" style="color: #BADFDB;"></i> Luxe & Spa, Marrakech
+                                            </small>
+                                        </div>
+                                        <div class="d-flex align-items-center gap-2">
+                                            <span style="font-size: 1.3rem; font-weight: 700; color: #BADFDB;">75€</span>
+                                            <span style="font-size: 0.95rem; color: #999; text-decoration: line-through;">100€</span>
+                                            <a href="reserver.html?salon=luxe&service=massage" class="btn btn-sm ms-auto" style="background: #FFA4A4; color: #ffffff; border: none; border-radius: 20px; padding: 6px 16px;">Réserver</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-6 col-12">
+                            <div class="offer-card" style="background: #ffffff; border-radius: 15px; overflow: hidden; box-shadow: 0 8px 25px rgba(0,0,0,0.1); transition: all 0.3s ease; display: flex;">
+                                <div style="width: 40%; height: 280px; overflow: hidden;">
+                                    <img src="images/massage3.jpg" alt="Soin du Visage" style="width: 100%; height: 100%; object-fit: cover;">
+                                </div>
+                                <div class="p-4" style="width: 60%; display: flex; flex-direction: column; justify-content: space-between;">
+                                    <div>
+                                        <div class="d-flex align-items-center gap-2 mb-3">
+                                            <span class="badge" style="background: #FFD700; color: #1a1a1a; font-size: 0.85rem; padding: 6px 12px; border-radius: 20px;">-40%</span>
+                                            <span class="text-muted" style="font-size: 0.9rem;">Flash sale 48h</span>
+                                        </div>
+                                        <h5 style="font-weight: 700; color: #1a1a1a; margin-bottom: 8px;">Soin Hydratant Visage</h5>
+                                        <p class="text-muted mb-3" style="font-size: 0.95rem;">Nettoyage + gommage + soin + masque hydratant + massage</p>
+                                    </div>
+                                    <div>
+                                        <div class="d-flex align-items-center gap-2 mb-3">
+                                            <small class="text-muted">
+                                                <i class="bi bi-geo-alt-fill" style="color: #FFD700;"></i> Bella Beauté, Rabat
+                                            </small>
+                                        </div>
+                                        <div class="d-flex align-items-center gap-2">
+                                            <span style="font-size: 1.3rem; font-weight: 700; color: #FFD700;">60€</span>
+                                            <span style="font-size: 0.95rem; color: #999; text-decoration: line-through;">100€</span>
+                                            <a href="reserver.html?salon=bella&service=soinvisage" class="btn btn-sm ms-auto" style="background: #BADFDB; color: #1a1a1a; border: none; border-radius: 20px; padding: 6px 16px;">Réserver</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-6 col-12">
+                            <div class="offer-card" style="background: #ffffff; border-radius: 15px; overflow: hidden; box-shadow: 0 8px 25px rgba(0,0,0,0.1); transition: all 0.3s ease; display: flex;">
+                                <div style="width: 40%; height: 280px; overflow: hidden;">
+                                    <img src="images/ongle2.jpg" alt="Manucure Pédicure" style="width: 100%; height: 100%; object-fit: cover;">
+                                </div>
+                                <div class="p-4" style="width: 60%; display: flex; flex-direction: column; justify-content: space-between;">
+                                    <div>
+                                        <div class="d-flex align-items-center gap-2 mb-3">
+                                            <span class="badge" style="background: #FFA4A4; color: white; font-size: 0.85rem; padding: 6px 12px; border-radius: 20px;">Pack duo</span>
+                                            <span class="text-muted" style="font-size: 0.9rem;">2ème offre 50%</span>
+                                        </div>
+                                        <h5 style="font-weight: 700; color: #1a1a1a; margin-bottom: 8px;">Manucure + Pédicure</h5>
+                                        <p class="text-muted mb-3" style="font-size: 0.95rem;">Nails art classique + polish brillant + soin des cuticules</p>
+                                    </div>
+                                    <div>
+                                        <div class="d-flex align-items-center gap-2 mb-3">
+                                            <small class="text-muted">
+                                                <i class="bi bi-geo-alt-fill" style="color: #FFA4A4;"></i> Style & Grace, Fès
+                                            </small>
+                                        </div>
+                                        <div class="d-flex align-items-center gap-2">
+                                            <span style="font-size: 1.3rem; font-weight: 700; color: #FFA4A4;">49€</span>
+                                            <span style="font-size: 0.95rem; color: #999; text-decoration: line-through;">80€</span>
+                                            <a href="reserver.html?salon=grace&service=manucure" class="btn btn-sm ms-auto" style="background: #BADFDB; color: #1a1a1a; border: none; border-radius: 20px; padding: 6px 16px;">Réserver</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+            <section class="testimonials-section section-padding" style="background: linear-gradient(to bottom, #ffffff, #f7f9fc);" id="section_7">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12 col-12 text-center mb-5">
+                            <h2 class="mb-3">Ce que disent nos clients</h2>
+                            <p class="text-muted">Rejoignez des milliers de clients satisfaits</p>
+                        </div>
+
+                        <div class="col-lg-4 col-md-6 col-12 mb-4">
+                            <div class="card shadow-sm h-100 border-0" style="border-radius: 15px; transition: all 0.3s ease;">
+                                <div class="card-body">
+                                    <div class="mb-3">
+                                        <i class="bi bi-star-fill text-warning"></i>
+                                        <i class="bi bi-star-fill text-warning"></i>
+                                        <i class="bi bi-star-fill text-warning"></i>
+                                        <i class="bi bi-star-fill text-warning"></i>
+                                        <i class="bi bi-star-fill text-warning"></i>
+                                    </div>
+                                    <p class="fst-italic text-muted">"Super expérience ! Réservation simple et rapide, le salon était exactement comme décrit."</p>
+                                    <div class="d-flex align-items-center mt-3">
+                                        <div class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center" style="width: 40px; height: 40px; font-weight: 600;">SM</div>
+                                        <div class="ms-3">
+                                            <p class="mb-0 fw-semibold">Sarah M.</p>
+                                            <small class="text-muted">Nadia Make Up</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4 col-md-6 col-12 mb-4">
+                            <div class="card shadow-sm h-100 border-0" style="border-radius: 15px; transition: all 0.3s ease;">
+                                <div class="card-body">
+                                    <div class="mb-3">
+                                        <i class="bi bi-star-fill text-warning"></i>
+                                        <i class="bi bi-star-fill text-warning"></i>
+                                        <i class="bi bi-star-fill text-warning"></i>
+                                        <i class="bi bi-star-fill text-warning"></i>
+                                        <i class="bi bi-star-fill text-warning"></i>
+                                    </div>
+                                    <p class="fst-italic text-muted">"Enfin une app qui facilite la réservation au Maroc. Simple, rapide, je recommande !"</p>
+                                    <div class="d-flex align-items-center mt-3">
+                                        <div class="bg-danger text-white rounded-circle d-flex align-items-center justify-content-center" style="width: 40px; height: 40px; font-weight: 600;">YB</div>
+                                        <div class="ms-3">
+                                            <p class="mb-0 fw-semibold">Youssef B.</p>
+                                            <small class="text-muted">Fade Masters</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4 col-md-6 col-12 mb-4">
+                            <div class="card shadow-sm h-100 border-0" style="border-radius: 15px; transition: all 0.3s ease;">
+                                <div class="card-body">
+                                    <div class="mb-3">
+                                        <i class="bi bi-star-fill text-warning"></i>
+                                        <i class="bi bi-star-fill text-warning"></i>
+                                        <i class="bi bi-star-fill text-warning"></i>
+                                        <i class="bi bi-star-fill text-warning"></i>
+                                        <i class="bi bi-star-fill text-warning"></i>
+                                    </div>
+                                    <p class="fst-italic text-muted">"J'ai trouvé mon nouveau salon préféré grâce à Raffinea. Je ne cherche plus ailleurs !"</p>
+                                    <div class="d-flex align-items-center mt-3">
+                                        <div class="bg-info text-dark rounded-circle d-flex align-items-center justify-content-center" style="width: 40px; height: 40px; font-weight: 600;">FZ</div>
+                                        <div class="ms-3">
+                                            <p class="mb-0 fw-semibold">Fatima Z.</p>
+                                            <small class="text-muted">Lash Lounge</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+          
+
+            <section class="featured-salons-section section-padding" style="background: #FCF9EA;" id="section_salons">
+                <div class="container">
+                    <div class="row mb-5">
+                        <div class="col-lg-8 col-12 mx-auto text-center">
+                            <h2 class="mb-3" style="font-size: 2.5rem; font-weight: 700;">Salons en vedette</h2>
+                            <p class="lead text-muted">Découvrez les meilleurs salons recommandés par nos clients</p>
+                        </div>
+                    </div>
+
+                    <div class="row g-4">
+                        <div class="col-lg-3 col-md-6 col-12">
+                            <div class="salon-card h-100" style="background: #ffffff; border-radius: 15px; overflow: hidden; box-shadow: 0 5px 20px rgba(0,0,0,0.08); transition: all 0.3s ease;">
+                                <div class="salon-image-wrap" style="position: relative; height: 220px; overflow: hidden; background: linear-gradient(135deg, #BADFDB 0%, #FFA4A4 100%);">
+                                    <img src="images/coiffure.jpg" alt="Essence Coiffure" style="width: 100%; height: 100%; object-fit: cover;">
+                                    <span class="badge bg-danger position-absolute top-0 end-0 m-3">Tendance</span>
+                                </div>
+                                <div class="p-4">
+                                    <h5 class="mb-2" style="font-weight: 700; color: #1a1a1a;">Essence Coiffure</h5>
+                                    <div class="d-flex align-items-center mb-3">
+                                        <i class="bi bi-geo-alt-fill" style="color: #FFA4A4; font-size: 0.9rem;"></i>
+                                        <small class="ms-2 text-muted">Casablanca</small>
+                                    </div>
+                                    <div class="d-flex gap-2 mb-3">
+                                        <i class="bi bi-star-fill" style="color: #FFD700; font-size: 0.85rem;"></i>
+                                        <i class="bi bi-star-fill" style="color: #FFD700; font-size: 0.85rem;"></i>
+                                        <i class="bi bi-star-fill" style="color: #FFD700; font-size: 0.85rem;"></i>
+                                        <i class="bi bi-star-fill" style="color: #FFD700; font-size: 0.85rem;"></i>
+                                        <i class="bi bi-star-fill" style="color: #FFD700; font-size: 0.85rem;"></i>
+                                        <small class="text-muted ms-2">(125 avis)</small>
+                                    </div>
+                                    <a href="reserver.html?salon=essence" class="btn btn-sm" style="background: #BADFDB; color: #1a1a1a; border: none; border-radius: 20px; width: 100%;">Réserver</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3 col-md-6 col-12">
+                            <div class="salon-card h-100" style="background: #ffffff; border-radius: 15px; overflow: hidden; box-shadow: 0 5px 20px rgba(0,0,0,0.08); transition: all 0.3s ease;">
+                                <div class="salon-image-wrap" style="position: relative; height: 220px; overflow: hidden; background: linear-gradient(135deg, #FFA4A4 0%, #BADFDB 100%);">
+                                    <img src="images/salon2.jpg" alt="Bella Beauté" style="width: 100%; height: 100%; object-fit: cover;">
+                                    <span class="badge bg-success position-absolute top-0 end-0 m-3">Nouveau</span>
+                                </div>
+                                <div class="p-4">
+                                    <h5 class="mb-2" style="font-weight: 700; color: #1a1a1a;">Bella Beauté</h5>
+                                    <div class="d-flex align-items-center mb-3">
+                                        <i class="bi bi-geo-alt-fill" style="color: #FFA4A4; font-size: 0.9rem;"></i>
+                                        <small class="ms-2 text-muted">Rabat</small>
+                                    </div>
+                                    <div class="d-flex gap-2 mb-3">
+                                        <i class="bi bi-star-fill" style="color: #FFD700; font-size: 0.85rem;"></i>
+                                        <i class="bi bi-star-fill" style="color: #FFD700; font-size: 0.85rem;"></i>
+                                        <i class="bi bi-star-fill" style="color: #FFD700; font-size: 0.85rem;"></i>
+                                        <i class="bi bi-star-fill" style="color: #FFD700; font-size: 0.85rem;"></i>
+                                        <i class="bi bi-star-fill" style="color: #FFD700; font-size: 0.85rem;"></i>
+                                        <small class="text-muted ms-2">(98 avis)</small>
+                                    </div>
+                                    <a href="reserver.html?salon=bella" class="btn btn-sm" style="background: #BADFDB; color: #1a1a1a; border: none; border-radius: 20px; width: 100%;">Réserver</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3 col-md-6 col-12">
+                            <div class="salon-card h-100" style="background: #ffffff; border-radius: 15px; overflow: hidden; box-shadow: 0 5px 20px rgba(0,0,0,0.08); transition: all 0.3s ease;">
+                                <div class="salon-image-wrap" style="position: relative; height: 220px; overflow: hidden; background: linear-gradient(135deg, #FFBDBD 0%, #FCF9EA 100%);">
+                                    <img src="images/massage2.jpg" alt="Luxe & Spa" style="width: 100%; height: 100%; object-fit: cover;">
+                                    <span class="badge bg-warning position-absolute top-0 end-0 m-3">Premium</span>
+                                </div>
+                                <div class="p-4">
+                                    <h5 class="mb-2" style="font-weight: 700; color: #1a1a1a;">Luxe & Spa</h5>
+                                    <div class="d-flex align-items-center mb-3">
+                                        <i class="bi bi-geo-alt-fill" style="color: #FFA4A4; font-size: 0.9rem;"></i>
+                                        <small class="ms-2 text-muted">Marrakech</small>
+                                    </div>
+                                    <div class="d-flex gap-2 mb-3">
+                                        <i class="bi bi-star-fill" style="color: #FFD700; font-size: 0.85rem;"></i>
+                                        <i class="bi bi-star-fill" style="color: #FFD700; font-size: 0.85rem;"></i>
+                                        <i class="bi bi-star-fill" style="color: #FFD700; font-size: 0.85rem;"></i>
+                                        <i class="bi bi-star-fill" style="color: #FFD700; font-size: 0.85rem;"></i>
+                                        <i class="bi bi-star-fill" style="color: #FFD700; font-size: 0.85rem;"></i>
+                                        <small class="text-muted ms-2">(156 avis)</small>
+                                    </div>
+                                    <a href="reserver.html?salon=luxe" class="btn btn-sm" style="background: #BADFDB; color: #1a1a1a; border: none; border-radius: 20px; width: 100%;">Réserver</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3 col-md-6 col-12">
+                            <div class="salon-card h-100" style="background: #ffffff; border-radius: 15px; overflow: hidden; box-shadow: 0 5px 20px rgba(0,0,0,0.08); transition: all 0.3s ease;">
+                                <div class="salon-image-wrap" style="position: relative; height: 220px; overflow: hidden; background: linear-gradient(135deg, #BADFDB 0%, #FFBDBD 100%);">
+                                    <img src="images/salon1.jpg" alt="Style & Grace" style="width: 100%; height: 100%; object-fit: cover;">
+                                    <span class="badge bg-primary position-absolute top-0 end-0 m-3">Populaire</span>
+                                </div>
+                                <div class="p-4">
+                                    <h5 class="mb-2" style="font-weight: 700; color: #1a1a1a;">Style & Grace</h5>
+                                    <div class="d-flex align-items-center mb-3">
+                                        <i class="bi bi-geo-alt-fill" style="color: #FFA4A4; font-size: 0.9rem;"></i>
+                                        <small class="ms-2 text-muted">Fès</small>
+                                    </div>
+                                    <div class="d-flex gap-2 mb-3">
+                                        <i class="bi bi-star-fill" style="color: #FFD700; font-size: 0.85rem;"></i>
+                                        <i class="bi bi-star-fill" style="color: #FFD700; font-size: 0.85rem;"></i>
+                                        <i class="bi bi-star-fill" style="color: #FFD700; font-size: 0.85rem;"></i>
+                                        <i class="bi bi-star-fill" style="color: #FFD700; font-size: 0.85rem;"></i>
+                                        <i class="bi bi-star-fill" style="color: #FFD700; font-size: 0.85rem;"></i>
+                                        <small class="text-muted ms-2">(87 avis)</small>
+                                    </div>
+                                    <a href="reserver.html?salon=grace" class="btn btn-sm" style="background: #BADFDB; color: #1a1a1a; border: none; border-radius: 20px; width: 100%;">Réserver</a>
+                               </div>
+                          </div>
+                       </div>
+                   </div><br><br>
+                  <a href="search.html"  class="btn btn-sm" style="background: #BADFDB; color: #1a1a1a; border: none; border-radius: 20px; width: 100%; " ><h5> Voir plus </h5> </a> 
+               </div>
+            </section>
+
+            <section class="pro-section section-padding" style="background: linear-gradient(135deg, #f7f9fc 0%, #e8f0f7 100%); position: relative; overflow: hidden;" id="section_9">
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-lg-5 col-12 mb-5 mb-lg-0">
+                            <h2 class="mb-4" style="font-size: 2.5rem; font-weight: 700;">Vous êtes un professionnel ?</h2>
+                            <p class="lead mb-4">Salon de coiffure, institut de beauté, spa ou professionnel à domicile ? Développez votre activité avec la plateforme de réservation n°1.</p>
+                            <a href="#section_contact" class="btn custom-btn btn-lg px-5 py-3 smoothscroll">En savoir plus <i class="bi bi-arrow-right ms-2"></i></a>
+                            <div class="mt-5 pt-4 border-top">
+                                <p class="fw-bold mb-2" style="font-size: 1.2rem;">Excellent 5/5</p>
+                                <div class="mb-2">
+                                    <i class="bi bi-star-fill text-warning" style="font-size: 1.3rem;"></i>
+                                    <i class="bi bi-star-fill text-warning" style="font-size: 1.3rem;"></i>
+                                    <i class="bi bi-star-fill text-warning" style="font-size: 1.3rem;"></i>
+                                    <i class="bi bi-star-fill text-warning" style="font-size: 1.3rem;"></i>
+                                    <i class="bi bi-star-fill text-warning" style="font-size: 1.3rem;"></i>
+                                </div>
+                                <small class="text-muted">Des salons partenaires partout au Maroc</small>
+                            </div>
+                        </div>
+                        <div class="col-lg-7 col-12 d-none d-lg-block">
+                            <div class="position-relative">
+                                <div class="card shadow-lg border-0" style="border-radius: 20px 0 0 20px; overflow: hidden;">
+                                    <img src="images/image2.jpg" class="img-fluid" alt="Interface Raffinea Pro" style="width: 100%; height: auto; display: block;">
+                                </div>
+                                <div class="position-absolute" style="bottom: 50px; left: -60px; width: 180px; z-index: 2;">
+                                    <div class="bg-dark p-1" style="border-radius: 28px; box-shadow: 0 30px 60px rgba(0,0,0,0.3);">
+                                        <div style="border-radius: 24px; overflow: hidden; background: white;">
+                                            <img src="images/image3.jpg" class="img-fluid" alt="App Mobile Raffinea">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="faq-section section-padding" id="section_faq">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-6 col-12 mb-5 mb-lg-0">
+                            <div class="pe-lg-5">
+                                <div class="mb-4">
+                                    <span class="badge bg-primary text-white px-3 py-2 rounded-pill mb-3" style="font-size: 0.75rem; letter-spacing: 1px;">FAQ</span>
+                                    <h2 class="mb-3" style="font-size: 2rem; font-weight: 700;">Questions fréquentes</h2>
+                                    <p class="text-muted mb-3">Vous hésitez encore ? Retrouvez ici les réponses aux questions les plus posées par nos utilisateurs.</p>
+                                    <p class="text-muted" style="font-size: 0.9rem;">Simple, rapide et transparent.</p>
+                                </div>
+
+                                <div class="accordion" id="faqAccordion">
+                                    <div class="accordion-item border-bottom">
+                                        <h2 class="accordion-header" id="headingOne">
+                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne" style="font-weight: 500; color: #2c3e50;">
+                                                 Raffinea est-elle gratuite ?
+                                            </button>
+                                        </h2>
+                                        <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#faqAccordion">
+                                            <div class="accordion-body text-muted" style="font-size: 0.9rem;">
+                                                Oui, totalement ! Raffinea ne facture aucun frais aux utilisateurs. Vous réservez vos rendez-vous beauté et bien-être sans payer plus cher. Les tarifs sont ceux des salons, sans surprise ni frais cachés.
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="accordion-item border-bottom">
+                                        <h2 class="accordion-header" id="headingTwo">
+                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo" style="font-weight: 500; color: #2c3e50;">
+                                                Dois-je créer un compte pour réserver ?
+                                            </button>
+                                        </h2>
+                                        <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#faqAccordion">
+                                            <div class="accordion-body text-muted" style="font-size: 0.9rem;">
+                                                Oui, un compte gratuit est nécessaire pour réserver. Il vous permet de garder un suivi de vos rendez-vous, de recevoir des rappels et de profiter d'offres personnalisées adaptées à vos envies.
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="accordion-item border-bottom">
+                                        <h2 class="accordion-header" id="headingThree">
+                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree" style="font-weight: 500; color: #2c3e50;">
+                                                Puis-je annuler ou modifier mon rendez-vous ?
+                                            </button>
+                                        </h2>
+                                        <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#faqAccordion">
+                                            <div class="accordion-body text-muted" style="font-size: 0.9rem;">
+                                                Bien sûr. Vous pouvez gérer vos réservations directement depuis l'application. Selon les règles du salon choisi, l'annulation ou le changement est possible facilement, sans avoir besoin d'appeler.
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="accordion-item border-bottom">
+                                        <h2 class="accordion-header" id="headingFour">
+                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour" style="font-weight: 500; color: #2c3e50;">
+                                                Comment être sûr(e) que les salons sont fiables ?
+                                            </button>
+                                        </h2>
+                                        <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#faqAccordion">
+                                            <div class="accordion-body text-muted" style="font-size: 0.9rem;">
+                                                Tous les salons et professionnels présents sur Raffinea sont soigneusement vérifiés. Nous sélectionnons des adresses de confiance pour garantir qualité, sécurité et satisfaction à chaque prestation réservée.
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-6 col-12">
+                            <div class="card shadow-lg border-0 p-4 p-lg-5" style="background: linear-gradient(135deg, #BADFDB 0%, #6BA085 100%); border-radius: 20px;">
+                                <div class="text-center">
+                                    <h3 class="text-white mb-3">Vous souhaitez en savoir davantage ?</h3>
+                                    <p class="text-white mb-4" style="opacity: 0.9; font-size: 0.95rem;">Posez-nous vos questions, nos équipes se feront un plaisir d'y répondre</p>
+                                    <a href="#section_contact" class="btn btn-light btn-lg px-5 py-3 smoothscroll" style="border-radius: 50px; font-weight: 600;">Nous contacter</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="contact-section section-padding" id="section_contact">
+                <div class="container">
+                    <div class="row">
+
+                        <div class="col-lg-5 col-12">
+                        <form action="#" method="post" class="custom-form contact-form" role="form" id="contactForm">
+  
+                            
+                                <h2 class="mb-4 pb-2">Contact Raffinea</h2>
+
+
+                                <div class="row">
+                                    <div class="col-lg-6 col-md-6 col-12">
+                                        <div class="form-floating">
+                                            <input type="text" name="full-name" id="full-name" class="form-control" placeholder="Nom complet" required="">
+                                            
+                                            <label for="floatingInput">Nom complet</label>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-6 col-md-6 col-12"> 
+                                        <div class="form-floating">
+                                            <input type="email" name="email" id="email" pattern="[^ @]*@[^ @]*" class="form-control" placeholder="Adresse e-mail" required="">
+                                            
+                                            <label for="floatingInput">Adresse e-mail</label>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-12 col-12">
+                                        <div class="form-floating">
+                                            <textarea class="form-control" id="message" name="message" placeholder="Votre message"></textarea>
+                                            
+                                            <label for="floatingTextarea">Message</label>
+                                        </div>
+
+                                        <button type="submit" class="form-control">Envoyer</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+
+                        <div class="col-lg-6 col-12">
+                            <div class="contact-info mt-5">
+                                <div class="contact-info-item">
+                                    <div class="contact-info-body">
+                                        <strong>Casablanca, MAROC</strong>
+
+                                        <p class="mt-2 mb-1">
+                                            <a href="tel: +2126 79 40 17 16" class="contact-link">
+                                                (+212) 
+                                                6 79 40 17 16
+                                            </a>
+                                        </p>
+
+                                        <p class="mb-0">
+                                            <a href="mailto:contact@Raffinea.com" class="contact-link">
+                                                contact@Raffinea.com
+                                            </a>
+                                        </p>
+                                    </div>
+
+                                    <div class="contact-info-footer">
+                                        <a href="#">Itinéraire</a>
+                                    </div>
+                                </div>
+
+                                <img src="images/WorldMap.svg" class="img-fluid" alt="">
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <div class="popup-overlay" id="subscribePopup" aria-hidden="true">
+            <div class="popup-card" role="dialog" aria-modal="true" aria-labelledby="popupTitle">
+                <div class="popup-title" id="popupTitle">Merci pour votre inscription !</div>
+                <div class="popup-message">Votre abonnement a bien été pris en compte.</div>
+                <button type="button" class="popup-btn" id="popupCloseBtn">Fermer</button>
+            </div>
+        </div>
+
+        <div class="popup-overlay" id="contactPopup" aria-hidden="true">
+            <div class="popup-card" role="dialog" aria-modal="true" aria-labelledby="contactPopupTitle">
+                <div class="popup-title" id="contactPopupTitle">Message envoyé !</div>
+                <div class="popup-message">Merci pour votre message. Notre équipe vous répondra rapidement.</div>
+                <button type="button" class="popup-btn" id="contactPopupCloseBtn">Fermer</button>
+            </div>
+        </div><br><br><br>
+
+        <footer class="site-footer">
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-lg-3 col-md-6 col-12 mb-4 mb-lg-0">
+                        <a class="navbar-brand d-flex align-items-center justify-content-center mb-3" href="index.html">
+                            <div class="logo-container d-flex align-items-center justify-content-center" href="index.html">
+                           <span class="logo-initial" style="color: #FFA4A4;" >R</span>
+                           <span class="logo-text" style="color: #FFA4A4;  " >affinea</span>
+
+                            </div>  
+                        </a><br>
+                        <span class="navbar-brand-text">
+                                <small>Comparez, réservez, rayonnez</small>
+                            </span>
+                        <p class="text-muted" style="font-size: 0.9rem;">La plateforme de réservation beauté et bien-être au Maroc.</p>
+                    </div>
+
+                    <div class="col-lg-2 col-md-6 col-12 mb-4 mb-lg-0">
+                        <h5 class="site-footer-title mb-3">Pour les clients</h5>
+                        <ul class="list-unstyled">
+                            <li class="mb-2"><a href="search.html" class="text-muted">Trouver un salon</a></li>
+                            <li class="mb-2"><a href="search.html" class="text-muted">Salons à Casablanca</a></li>
+                            <li class="mb-2"><a href="search.html" class="text-muted">Salons à Rabat</a></li>
+                            <li class="mb-2"><a href="search.html" class="text-muted">Salons à Marrakech</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="col-lg-2 col-md-6 col-12 mb-4 mb-lg-0">
+                        <h5 class="site-footer-title mb-3">Pour les pros</h5>
+                        <ul class="list-unstyled">
+                            <li class="mb-2"><a href="index.html#section_9" class="text-muted smoothscroll">Raffinea Pro</a></li>
+                            <li class="mb-2"><a href="index.html#section_contact" class="text-muted smoothscroll">Inscrire mon salon</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="col-lg-2 col-md-6 col-12 mb-4 mb-lg-0">
+                        <h5 class="site-footer-title mb-3">Support</h5>
+                        <ul class="list-unstyled">
+                            <li class="mb-2"><a href="index.html#section_contact" class="text-muted smoothscroll">Contact</a></li>
+                            <li class="mb-2"><a href="index.html#section_faq" class="text-muted">FAQ</a></li>
+                            <li class="mb-2"><a href="#" class="text-muted">Conditions d'utilisation</a></li>
+                            <li class="mb-2"><a href="#" class="text-muted">Politique de confidentialité</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="col-lg-3 col-12">
+                        <h5 class="site-footer-title mb-3">Contact</h5>
+                        <p class="text-muted mb-2">
+                            <a href="mailto:contact@raffinea.com" class="contact-link text-muted">
+                                contact@raffinea.com
+                            </a>
+                        </p>
+                        <p class="text-muted mb-3">
+                            <a href="tel:+212623973139" class="contact-link text-muted">
+                                (+212) 6 23 97 31 39
+                            </a>
+                        </p>
+
+                        <ul class="social-icon mt-3 mb-4">
+                            <li class="social-icon-item">
+                                <a href="#" class="social-icon-link bi-instagram"></a>
+                            </li>
+
+                            <li class="social-icon-item">
+                                <a href="#" class="social-icon-link bi-twitter"></a>
+                            </li>
+
+                            <li class="social-icon-item">
+                                <a href="#" class="social-icon-link bi-whatsapp"></a>
+                            </li>
+                        </ul>
+
+                        <div class="border-top pt-3 mt-3">
+                            <p class="text-muted mb-2" style="font-size: 0.85rem;">Lun-Ven: 9:00 - 18:00</p>
+                            <p class="text-muted" style="font-size: 0.85rem;">Sam: 10:00 - 16:00</p>
+                        </div>
+                    </div>
+
+                </div>
+
+                <hr class="my-4" style="border-color: rgba(255,255,255,0.1);">
+
+                <div class="row">
+                    <div class="col-12 text-center">
+                        <p class="copyright-text mb-0">Copyright © 2026 Raffinea - Tous droits réservés</p>
+                    </div>
+                </div>
+            </div>
+
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#BADFDB" fill-opacity="1" d="M0,224L34.3,192C68.6,160,137,96,206,90.7C274.3,85,343,139,411,144C480,149,549,107,617,122.7C685.7,139,754,213,823,240C891.4,267,960,245,1029,224C1097.1,203,1166,181,1234,160C1302.9,139,1371,117,1406,106.7L1440,96L1440,320L1405.7,320C1371.4,320,1303,320,1234,320C1165.7,320,1097,320,1029,320C960,320,891,320,823,320C754.3,320,686,320,617,320C548.6,320,480,320,411,320C342.9,320,274,320,206,320C137.1,320,69,320,34,320L0,320Z"></path></svg>
+        </footer>
+
+
+        <!-- JAVASCRIPT FILES -->
+        <script src="js/jquery.min.js"></script>
+        <script src="js/bootstrap.bundle.min.js"></script>
+        <script src="js/jquery.sticky.js"></script>
+        <script src="js/click-scroll.js"></script>
+        <script src="js/animated-headline.js"></script>
+        <script src="js/modernizr.js"></script>
+        <script src="js/custom.js"></script>
+        <script src="js/raffinea-custom.js"></script>
+
+        <script>
+            // Gestion de la recherche
+            function handleSearch(event) {
+                event.preventDefault();
+                const searchQuery = document.querySelector('#searchInput') || document.querySelector('input[name="q"]');
+                if (searchQuery && searchQuery.value.trim()) {
+                    window.location.href = 'search.html?q=' + encodeURIComponent(searchQuery.value.trim());
+                    return false;
+                }
+                return false;
+            }
+
+            // Animation des mots - Section À propos
+            $(document).ready(function() {
+                const words = $('.animated-word');
+                let currentIndex = 0;
+                
+                function animateNextWord() {
+                    // Réinitialiser tous les mots
+                    words.css({
+                        'animation': 'none',
+                        'opacity': '0',
+                        'transform': 'translateY(-50px)'
+                    });
+                    
+                    // Forcer un reflow pour relancer l'animation
+                    words[currentIndex].offsetHeight;
+                    
+                    // Lancer l'animation sur le mot actuel
+                    $(words[currentIndex]).css({
+                        'animation': 'wordFall 3s ease-in-out forwards'
+                    });
+                    
+                    // Passer au mot suivant
+                    currentIndex = (currentIndex + 1) % words.length;
+                }
+                
+                // Démarrer l'animation
+                animateNextWord();
+                setInterval(animateNextWord, 3000);
+
+                // Script de défilement fluide pour tous les liens avec ancres
+                $('a[href^="#"]').on('click', function(e) {
+                    const target = $(this.getAttribute('href'));
+                    if(target.length) {
+                        e.preventDefault();
+                        $('html, body').stop().animate({
+                            scrollTop: target.offset().top - 100
+                        }, 1000);
+                        
+                        // Fermer le menu mobile si ouvert
+                        if($('.navbar-collapse').hasClass('show')) {
+                            $('.navbar-toggler').click();
+                        }
+                    }
+                });
+
+                // Détection de la section active au défilement
+                $(window).on('scroll', function() {
+                    let current = '';
+                    
+                    $('section').each(function() {
+                        let $section = $(this);
+                        let sectionTop = $section.offset().top - 150;
+                        
+                        if($(window).scrollTop() >= sectionTop) {
+                            current = $section.attr('id');
+                        }
+                    });
+                    
+                    // Supprimer la classe active de tous les liens
+                    $('.nav-link').removeClass('active');
+                    
+                    // Ajouter la classe active au lien correspondant
+                    if(current) {
+                        $('a[href="#' + current + '"]').addClass('active');
+                    }
+                });
+            });
+        
+
+        // Abonnement newsletter
+        document.addEventListener('DOMContentLoaded', function() {
+            const subscribeForm = document.getElementById('subscribeForm');
+            const popup = document.getElementById('subscribePopup');
+            const popupCloseBtn = document.getElementById('popupCloseBtn');
+
+            function closePopup() {
+                if (popup) {
+                    popup.classList.remove('active');
+                    popup.setAttribute('aria-hidden', 'true');
+                }
+            }
+
+            if (popup) {
+                popup.addEventListener('click', function(e) {
+                    if (e.target === popup) {
+                        closePopup();
+                    }
+                });
+            }
+
+            if (popupCloseBtn) {
+                popupCloseBtn.addEventListener('click', closePopup);
+            }
+
+            if (subscribeForm) {
+                subscribeForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    const emailInput = document.getElementById('subscribeEmail');
+                    const emailValue = emailInput ? emailInput.value.trim() : '';
+                    if (!emailValue) {
+                        alert('Veuillez saisir une adresse e-mail valide.');
+                        return;
+                    }
+                    console.log('Nouvel abonnement:', emailValue);
+                    if (popup) {
+                        popup.classList.add('active');
+                        popup.setAttribute('aria-hidden', 'false');
+                    }
+                    subscribeForm.reset();
+                });
+            }
+        });
+
+        // Contact
+        document.addEventListener('DOMContentLoaded', function() {
+            const contactForm = document.getElementById('contactForm');
+            const contactPopup = document.getElementById('contactPopup');
+            const contactPopupCloseBtn = document.getElementById('contactPopupCloseBtn');
+
+            function closeContactPopup() {
+                if (contactPopup) {
+                    contactPopup.classList.remove('active');
+                    contactPopup.setAttribute('aria-hidden', 'true');
+                }
+            }
+
+            if (contactPopup) {
+                contactPopup.addEventListener('click', function(e) {
+                    if (e.target === contactPopup) {
+                        closeContactPopup();
+                    }
+                });
+            }
+
+            if (contactPopupCloseBtn) {
+                contactPopupCloseBtn.addEventListener('click', closeContactPopup);
+            }
+
+            if (contactForm) {
+                contactForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    const fullName = document.getElementById('full-name')?.value.trim();
+                    const email = document.getElementById('email')?.value.trim();
+                    const message = document.getElementById('message')?.value.trim();
+
+                    if (!fullName || !email || !message) {
+                        alert('Veuillez remplir tous les champs.');
+                        return;
+                    }
+
+                    console.log('Message contact:', { fullName, email, message });
+
+                    if (contactPopup) {
+                        contactPopup.classList.add('active');
+                        contactPopup.setAttribute('aria-hidden', 'false');
+                    }
+
+                    contactForm.reset();
+                });
+            }
+        });
+        
+        
+        
+        </script>
+    </body>
+</html>

@@ -1,0 +1,517 @@
+/* ========================================
+   MODERN NAVBAR 
+======================================== */
+.navbar-modern {
+    position: relative;
+    padding-top: 20px;
+    padding-bottom: 80px; /* Espace pour laisser la vague respirer */
+    background: transparent !important; /* On enlève le fond solide */
+    border: none;
+}
+
+.navbar-wavy-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%; /* Elle prend toute la hauteur de la navbar */
+    z-index: -1; /* Derrière tout le contenu */
+    line-height: 0;
+}
+
+.navbar-wavy-background svg {
+    width: 100%;
+    height: 100%; /* Étire la vague sur la hauteur définie par le padding */
+}
+
+.navbar-content {
+    position: relative;
+    z-index: 10; /* Assure que le texte est par-dessus la vague */
+}
+
+/* On s'assure que le header/hero section n'a pas de marge qui casse l'effet */
+.hero-section {
+    margin-top: -50px; /* Fait remonter la section recherche pour "coller" à la vague */
+}
+
+.navbar-modern .navbar-brand-text strong {
+    font-size: 1.5rem;
+    color: #ffffff;
+    font-weight: 700;
+}
+
+.navbar-modern .nav-link {
+    color: #ffffff;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    transition: color 0.3s ease;
+}
+
+.navbar-modern .nav-link:hover {
+    color: #FCF9EA;
+}
+
+.navbar-modern .nav-link.active {
+    color: #FCF9EA !important;
+    font-weight: 600;
+    position: relative;
+}
+
+.navbar-modern .nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #FFA4A4, #BADFDB);
+    transition: width 0.3s ease;
+}
+
+.navbar-modern .nav-link:hover::after {
+    width: 100%;
+}
+
+.navbar-modern .nav-link.active::after {
+    width: 100%;
+}
+
+.navbar-modern .nav-link.inactive {
+    opacity: 0.8;
+}
+
+.btn-login {
+    background: rgba(255, 255, 255, 0.2);
+    border: 2px solid rgba(255, 255, 255, 0.4);
+    color: #ffffff;
+    padding: 0.5rem 1.5rem;
+    border-radius: 25px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.btn-login:hover {
+    border-color: #ffffff;
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.btn-primary-modern {
+    background: rgba(255, 255, 255, 0.9);
+    border: none;
+    color: #BADFDB;
+    padding: 0.5rem 1.5rem;
+    border-radius: 25px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(255, 255, 255, 0.3);
+}
+
+.btn-primary-modern:hover {
+    transform: translateY(-2px);
+    background: #ffffff;
+    box-shadow: 0 6px 20px rgba(255, 255, 255, 0.5);
+}
+
+/* ========================================
+   HERO SECTION MODERNE
+======================================== */
+.hero-section-modern {
+    background: linear-gradient(135deg, #FCF9EA 0%, #ffffff 100%);
+    padding: 120px 0 80px;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-wavy-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    opacity: 0.8;
+}
+
+.hero-section-modern .container {
+    position: relative;
+    z-index: 1;
+}
+
+.hero-section-modern::before {
+    content: '';
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(186, 223, 219, 0.15) 0%, transparent 70%);
+    top: -200px;
+    right: -200px;
+    border-radius: 50%;
+    z-index: 1;
+}
+
+.hero-title {
+    font-size: 3.5rem;
+    font-weight: 800;
+    color: #2d3748;
+    line-height: 1.2;
+}
+
+.text-gradient {
+    background: linear-gradient(135deg, #BADFDB 0%, #5a9179 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.hero-subtitle {
+    font-size: 1.2rem;
+    color: #718096;
+    line-height: 1.6;
+}
+
+/* Search Box */
+.hero-search-box .input-group {
+    background: white;
+    border-radius: 50px;
+    overflow: hidden;
+}
+
+.hero-search-box .form-control {
+    font-size: 1rem;
+    padding: 0.75rem 1rem;
+}
+
+.hero-search-box .form-control:focus {
+    box-shadow: none;
+}
+
+.btn-search {
+    background: linear-gradient(135deg, #BADFDB 0%, #FFA4A4 100%);
+    color: white;
+    border: none;
+    padding: 0.75rem 2rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-search:hover {
+    background: linear-gradient(135deg, #FFA4A4 0%, #BADFDB 100%);
+}
+
+/* Hero Stats */
+.hero-stats .stat-item {
+    text-align: left;
+}
+
+.stat-number {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #BADFDB;
+    margin-bottom: 0;
+}
+
+.stat-label {
+    color: #718096;
+    font-size: 0.9rem;
+    margin-bottom: 0;
+}
+
+/* Hero Image */
+.hero-image-wrapper {
+    position: relative;
+    padding: 2rem;
+}
+
+.hero-main-image {
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+    width: 100%;
+}
+
+.floating-card {
+    position: absolute;
+    background: white;
+    padding: 1rem 1.5rem;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    animation: float 3s ease-in-out infinite;
+}
+
+.floating-card-1 {
+    top: 10%;
+    left: -5%;
+}
+
+.floating-card-2 {
+    bottom: 10%;
+    right: -5%;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+}
+
+.floating-card i {
+    font-size: 1.5rem;
+}
+
+.floating-card strong {
+    font-size: 1rem;
+    color: #2d3748;
+}
+
+.floating-card small {
+    color: #718096;
+    font-size: 0.75rem;
+}
+
+/* ========================================
+   CARDS & FEATURES
+======================================== */
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15) !important;
+    transition: all 0.3s ease;
+}
+
+.features-section .card {
+    border-radius: 20px;
+    border: none;
+    transition: all 0.3s ease;
+}
+
+.features-section .card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(186, 223, 219, 0.2) !important;
+}
+
+/* ========================================
+   ACCORDIONS & FILTERS
+======================================== */
+.accordion-button:not(.collapsed) {
+    background-color: #FCF9EA;
+    color: #BADFDB;
+    font-weight: 600;
+}
+
+.accordion-button:focus {
+    box-shadow: none;
+    border-color: rgba(186, 223, 219, 0.25);
+}
+
+.btn-outline-primary {
+    border-color: #BADFDB;
+    color: #BADFDB;
+    border-radius: 25px;
+    padding: 0.5rem 1.5rem;
+    font-weight: 500;
+}
+
+.btn-outline-primary:hover,
+.btn-outline-primary.active {
+    background-color: #BADFDB;
+    border-color: #BADFDB;
+    color: white;
+}
+
+/* ========================================
+   ANIMATIONS
+======================================== */
+.bi-star-fill {
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.7; }
+}
+
+/* ========================================
+   RESPONSIVE
+======================================== */
+@media (max-width: 992px) {
+    .hero-title {
+        font-size: 2.5rem;
+    }
+    
+    .hero-stats {
+        margin-top: 2rem;
+    }
+    
+    .floating-card {
+        position: static;
+        margin-top: 1rem;
+    }
+    
+    .navbar-modern .navbar-nav {
+        padding-top: 1rem;
+    }
+    
+    .btn-login,
+    .btn-primary-modern {
+        width: 100%;
+        margin-top: 0.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 2rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1rem;
+    }
+    
+    .stat-number {
+        font-size: 1.5rem;
+    }
+    
+    .features-section .card {
+        margin-bottom: 1rem;
+    }
+}
+
+/* ========================================
+   ANIMATED WORDS - Section À propos
+======================================== */
+@keyframes wordFall {
+    0% {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    30% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    70% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+}
+
+.animated-words-container {
+    position: relative;
+    min-height: 70px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.animated-word {
+    position: absolute;
+    inset: 0;
+    margin: 0;
+    opacity: 0;
+    transform: translateY(-50px);
+    font-weight: 700;
+    color: #1a1a1a;
+}
+
+.animated-word:nth-child(1) {
+    color: #FFA4A4;
+}
+
+.animated-word:nth-child(2) {
+    color: #BADFDB;
+}
+
+.animated-word:nth-child(3) {
+    color: #FFBDBD;
+}
+
+@media (max-width: 768px) {
+    .animated-words-container {
+        height: 200px;
+    }
+    
+    .animated-word {
+        font-size: 2.5rem !important;
+    }
+}
+
+.animated-words-container {
+  width: 100%;
+  min-height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.animated-word {
+  font-size: clamp(2.5rem, 4vw, 4rem);
+  line-height: 1.1;
+  text-align: center;
+}
+
+section {
+    scroll-margin-top: 120px;
+}
+
+/* Pop-up commun */
+.popup-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.25s ease, visibility 0.25s ease;
+    z-index: 2000;
+}
+
+.popup-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.popup-card {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 28px 24px;
+    max-width: 420px;
+    width: calc(100% - 40px);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    transform: translateY(10px);
+    transition: transform 0.25s ease;
+}
+
+.popup-overlay.active .popup-card {
+    transform: translateY(0);
+}
+
+.popup-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-bottom: 8px;
+}
+
+.popup-message {
+    color: #666;
+    margin-bottom: 18px;
+    font-size: 0.95rem;
+}
+
+.popup-btn {
+    background: linear-gradient(135deg, #FFA4A4 0%, #BADFDB 100%);
+    color: #fff;
+    border: none;
+    border-radius: 999px;
+    padding: 10px 22px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
