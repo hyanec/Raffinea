@@ -411,3 +411,39 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 });
+
+// Gestion du menu hamburger - Ajustement du padding de la navbar
+document.addEventListener('DOMContentLoaded', function() {
+    const navbarToggler = document.querySelector('.navbar-toggler');
+    const navbarModerns = document.querySelectorAll('.navbar-modern');
+    const navbarCollapse = document.querySelector('#navbarNav');
+
+    if (navbarToggler && navbarCollapse && navbarModerns.length > 0) {
+        navbarToggler.addEventListener('click', function() {
+            // Attendre un peu pour que Bootstrap traite le toggle
+            setTimeout(function() {
+                const isExpanded = navbarToggler.getAttribute('aria-expanded') === 'true';
+                navbarModerns.forEach(function(navbar) {
+                    if (isExpanded) {
+                        navbar.classList.add('menu-open');
+                    } else {
+                        navbar.classList.remove('menu-open');
+                    }
+                });
+            }, 100);
+        });
+
+        // Écouter les événements Bootstrap
+        navbarCollapse.addEventListener('shown.bs.collapse', function() {
+            navbarModerns.forEach(function(navbar) {
+                navbar.classList.add('menu-open');
+            });
+        });
+
+        navbarCollapse.addEventListener('hidden.bs.collapse', function() {
+            navbarModerns.forEach(function(navbar) {
+                navbar.classList.remove('menu-open');
+            });
+        });
+    }
+});

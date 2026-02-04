@@ -84,3 +84,31 @@
 section {
     scroll-margin-top: 120px;
 }
+
+/* Affichage mobile du menu - 3 liens par ligne */
+@media (max-width: 991px) {
+    .navbar-nav {
+        display: flex !important;
+        flex-direction: row !important;
+        flex-wrap: wrap !important;
+        width: 100%;
+        padding: 10px 0;
+    }
+
+    .navbar-nav .nav-item {
+        width: 33.333%;
+        text-align: center;
+        padding: 8px 0;
+    }
+
+    .navbar-nav .nav-link {
+        padding: 8px 5px !important;
+        font-size: 0.9rem;
+    }
+
+    .navbar-collapse .d-flex {
+        width: 100%;
+        justify-content: center;
+        margin-top: 15px;
+    }
+}

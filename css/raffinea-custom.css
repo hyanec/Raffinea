@@ -4,9 +4,14 @@
 .navbar-modern {
     position: relative;
     padding-top: 20px;
-    padding-bottom: 80px; /* Espace pour laisser la vague respirer */
+    padding-bottom: 80px; /* Par défaut */
     background: transparent !important; /* On enlève le fond solide */
     border: none;
+    transition: padding-bottom 0.3s ease; /* Transition fluide */
+}
+
+.navbar-modern.menu-open {
+    padding-bottom: 300px; /* Quand le menu hamburger est ouvert */
 }
 
 .navbar-wavy-background {
